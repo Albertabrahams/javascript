@@ -1,3 +1,6 @@
+let num1=0;
+let num2="a"
+
 num1 = +prompt("Enter the first number :");
 operator = prompt("Enter an operator: ")
 num2 = +prompt("Enter the second number :");
@@ -22,3 +25,7 @@ switch (operator) {
         break;
 }
 console.log(result);
+console.log(num2);
+console.log(typeof(num1));
+console.log(typeof(num2));
+console.log(typeof(operator));
