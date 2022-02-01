@@ -11,10 +11,12 @@
 
 
 str = "Recep ata bak halil topu at"
-
+#Answer1
 # str = reversed(str.split(" "))
 # print(*str)
 
+
+#Answer2
 str = str.split(" ")
 str.reverse()
 print(str)
