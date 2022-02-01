@@ -2,17 +2,17 @@
 
 /*let sentence = ("If you fall asleep now, you will dream. If you study now, you will live your dream.")
 let counter = 0
-for (let i = 0; i< sentence.split("").length; i++) {
-    if (sentence.charAt(i) === "m") counter++;{   
-     } 
- }*/
+for (let i = 0; i< sentence.length; i++) {
+    if (sentence.charAt(i) === "m") counter++;    
+ }
+ console.log(counter);*/
 
 //find m index
 
-var myStr = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.";
-for (let i = 0; i < myStr.split("").length; i++) {
+let myStr = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.";
+for (let i = 0; i < myStr.length; i++) {
     if (myStr[i]=="m"){
-        console.log(myStr[i],"indexOf",i);
+        console.log("indexOf",myStr[i],i);
       }
  }
 

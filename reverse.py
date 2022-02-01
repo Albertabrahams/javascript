@@ -1,13 +1,51 @@
-liste="ali"
+#str = "Ali ata bak"
 
-b= liste.split(" ")
-b.reverse()
-print(b)
-print(" ".join(b))
+# str = str.split(" ")
+# str.reverse()
+# print(str)
+# print(" ".join(str))
+
+
+# str = reversed(str.split(" "))
+# print(*str)
+
+
+str = "Recep ata bak halil topu at"
+
+# str = reversed(str.split(" "))
+# print(*str)
+
+str = str.split(" ")
+str.reverse()
+print(str)
+print(" ".join(str))
 
 
 
-liste="ali ata bak"
 
-a=reversed(liste.split(" "))
-print(*a)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
