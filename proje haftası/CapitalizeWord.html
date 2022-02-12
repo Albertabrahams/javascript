@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p> QUESTION <br>
+    The purpose of this coding challenge is to capitalize the first letter of each word in the given long text. </p>
+
+
+
+
+   <textarea name="text" id="text" cols="50" rows="10" placeholder="Buraya bir metin giriniz" >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, obcaecati.</textarea> <br>
+
+   <button id="convert">Convert</button>
+    <p id="output"></p>
+    <script>
+        let inputText = document.getElementById("text")
+        
+        let button = document.getElementById("convert")
+        let output = document.getElementById("output")
+        let result =""
+        button.addEventListener("click", ()=>{
+           let text = inputText.value.toLowerCase();
+           
+           var str = text.split(" ");
+           for(let i= 0; i<str.length; i++){
+           str[i] = str[i].charAt(0).toUpperCase()+ str[i].slice(1)
+
+           result = str.join(" ");
+           }
+           
+        //    window.output.innerText = inputText.value
+           output.innerText = result;
+        }
+        )
+
+    </script>
+</body>
+</html>
