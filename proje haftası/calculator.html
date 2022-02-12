@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <h2>Question </h2>
+    <p>   The purpose of this coding challenge is to make a calculator that can do a single operation.</p> <br><br><br>
+    
+
+    <input type="number" id="first-num" placeholder="First number">
+    <input type="text" id="operator" placeholder="Operator">
+    <input type="number" id="second-num" placeholder="Second number">
+    <button id="calculate">Calculate</button>
+    <br>
+    <label id="result"></label>
+
+    <script>
+
+    let firstNum = document.querySelector("#first-num")
+    let secondNum = document.querySelector("#second-num")
+    let operator = document.querySelector("#operator")
+    let calculateBtn = document.querySelector("#calculate")
+    let label = document.querySelector("#result")
+
+    calculateBtn.addEventListener("click", () => {
+    let result;
+
+    if (operator.value == "+"){result = +firstNum.value + +secondNum.value}
+    else if (operator.value == "-"){result = +firstNum.value - +secondNum.value}
+    else if (operator.value == "*"){result = +firstNum.value * +secondNum.value}
+    else if (operator.value == "/"){result = +firstNum.value / +secondNum.value}
+    else {result = "Invalid input!"}
+
+    label.innerHTML = result;
+
+})
+ 
+    </script>
+</body>
+</html>

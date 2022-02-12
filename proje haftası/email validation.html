@@ -6,36 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body onload='document.form1.text1.focus()'>
-    <div class="mail">
-    <h2>Input an email and Submit</h2>
-    <form name="form1" action="#"> 
-    
-    <input type='text' name='text1' id="input"/>
-    <br><br>
-    <input type="submit" name="submit" value="Submit" onclick="ValidateEmail(document.form1.text1)"/>
-    
-    </form>
-    </div>
-    <script >
-   function ValidateEmail(inputText)
-{
-var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-if(inputText.value.match(mailformat))
-{
-alert("Valid email address!");
-document.form1.text1.focus();
-return true;
-}
-else
-{
-alert("You have entered an invalid email address!");
-document.form1.text1.focus();
-return false;
-}
-}
+<body>
+    <p>Question <br><br>
+        Purpose of the this coding challenge is to write a code that given email adresses, returns the emails valid or invalid.
+
+        Valid email addresses must follow these rules:
+        It must have the username@websitename.extension format type.
+        The maximum length of the extension is 3. </p>
+
+    <h1>Email Validation</h1>
+    <input type="email" name="email" id="email" style="width: 50%;">
+    <br>
+    <br>
+    <input type="button" value="Submit" class="btn">
 
 
+    <script>
+        let email = document.getElementById("email");
+        let submit = document.querySelector(".btn");
+        submit.addEventListener("click", ()=>{
+        let a = email.value;
+        let index = a.lastIndexOf(".");
+        console.log(index);
+        let com = a.slice(index+1, a.length );
+        console.log(com);
+        let et = a.indexOf("@");
+        alert((et !== -1) && (com.length == 2 || com.length == 3) ? "Valid email" : "Invalid email");
+        console.log((et !== -1) && (com.length == 2 || com.length == 3) ? "valid" : "invalid")
+        })
     </script>
-    </body>
+</body>
 </html>

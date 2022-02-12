@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottery</title>
+
+    <!-- -------QUESTION!!--------- -->
+    <!-- A lottery is a form of gambling that involves the drawing of numbers at random for a prize. There can not be the same number in same lottery ticket. Therefore this array can not have any number more than once. -->
+
+    <style>
+      #div{
+        display: grid;
+        background-color: blue;
+        grid-template-columns:repeat(3,1fr) ;
+        grid-template-rows: repeat(3,220px);
+        border: 2px solid black;
+        
+    }
+
+        
+      #a{
+          grid-area: a;
+          background-color: red;
+          grid-row: 2 / 3;
+          grid-column: 2 / 3;
+          vertical-align: middle;
+
+      }
+      #get-numbers{
+          width: 100%;
+            height: 50%;
+            font-size: 2rem;
+            color: gold;
+      }
+      #numbers{
+          width: 100%;
+         
+          text-align: center;
+          margin: auto;
+          /* padding-top: 45px; */
+          vertical-align: middle;
+              }
+
+
+    </style>
+</head>
+<body>
+    
+    <div id="div">
+    <div id="a">
+        <button id="get-numbers"><b> Get Lottery</b></button>
+        <br><br><br>
+        <h2 id="numbers"></h2>
+    </div><br>
+    
+    
+    
+    <script>
+        function randomNum() {
+            return Math.floor(Math.random() * 49) + 1
+        }
+
+        let getNumbers = document.querySelector("#get-numbers")
+        let numbers = document.querySelector("#numbers")
+
+        getNumbers.addEventListener("click", () => {
+        let numList = []
+        
+        while (numList.length < 6) {
+            let num = randomNum();
+            if (numList.includes(num)) continue
+            else numList.push(num)
+        }
+
+        numList.sort((a, b) => a - b)
+        // let m = numList.split(",")
+        // console.log(m);
+        
+        numbers.innerText = numList[0]+"-"+numList[1]+"-"+numList[2]+"-"+numList[3]+"-"+numList[4]+"-"+numList[5]
+    })
+
+    </script>
+    
+</body>
+</html>

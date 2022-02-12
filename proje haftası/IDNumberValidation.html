@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Simple Calculator</title>
+    <style>
+      body {
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- QUESTION and RULES
+        
+    Purpose of the this coding challenge is to write a code that given TR Identity Number, returns valid or invalid.
+
+Valid TR Identity Number must follow these rules:
+TR Identity Number actually consists of 9 digits, the last 2 digits have been added for control/verification purposes.
+The ID number cannot start with 0.
+The 10th digit is obtained by using the first 9 digits, and the 11th digit is obtained by using the first 10 digits.
+Add the digits in the 1st, 3rd, 5th, 7th and 9th digits, multiply by 7 and subtract the sum of the digits in the 2nd, 4th, 6th and 8th digits.
+The units digit of the result obtained (mod 10) gives the 10th digit of the ID number.
+When we add the first 9 digits of the ID number and the 10th digit obtained by the above method, the ones digit (mod 10) gives the 11th digit. -->
+
+
+
+
+    <h1>Identity Validation</h1>
+
+    <input
+      type="number"
+      name="idnumber"
+      id="idnumber"
+      placeholder="Enter your ID number"
+      maxlength="11"
+    />
+
+    <button id="button">Check Out</button>
+
+    <p id="par"></p>
+
+    <script>
+        let idNumber = document.getElementById("idnumber");
+let paragraf = document.getElementById("par");
+let button = document.getElementById("button");
+
+button.addEventListener("click", ()=>{
+        let arrayIdNumber = idNumber.value.split("");
+        if(arrayIdNumber.length != 11){
+            paragraf.innerText="Hatalı girdiniz. Tekrar giriniz " + "TC no su 11 hane olmak zorunda"
+        
+        return;
+    }
+    let toplam = ((+arrayIdNumber[0] + +arrayIdNumber[2] + +arrayIdNumber[4] + +arrayIdNumber[6] + 
+        +arrayIdNumber[8]) * 7) - (+arrayIdNumber[1] + +arrayIdNumber[3] + +arrayIdNumber[5] + +arrayIdNumber[7]);
+    toplam = toplam % 10; 
+    if(+arrayIdNumber[0] == 0){
+        paragraf.innerText="Hatalı girdiniz. Tekrar giriniz " + "0 hatası"
+        
+        return;
+    }
+    
+    if(toplam != +arrayIdNumber[9]){
+        paragraf.innerText="Hatalı girdiniz. Tekrar giriniz " + "10 karakter eşleşmedi"
+        
+        return;
+    }
+
+    let toplam1 = 0;
+    for (let index = 0; index < 9; index++) {
+        toplam1 += +arrayIdNumber[index]
+    }
+    toplam1 = toplam1 + toplam;
+    if(toplam1%10 != +arrayIdNumber[10]){
+        paragraf.innerText="Hatalı girdiniz. Tekrar giriniz " + "11 karakter eşleşmedi"
+        
+        return;
+    }
+paragraf.innerText="Başarılı bir giriş yaptınız"
+    
+
+})
+    </script>
+  </body>
+</html>
