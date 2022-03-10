@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tea Promise</title>
+</head>
+<body>
+    <script>
+          const cayDemle = () => {
+    // suyuKaynat(); ->  cayEkle(); ->  bekle(); ->  afiyet();
+    suyuKaynat()
+      .then((durum1) => {
+        console.log(durum1);
+        return cayEkle();
+      })
+      .then((durum2) => {
+        console.log(durum2);
+        bekle(1500);
+        return afiyet();
+      })
+      .then((durum3) => {
+        console.log(durum3);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  const suyuKaynat = () => {
+    return new Promise((resolve, reject) => {
+      const nasip = Math.floor(Math.random() * 5);
+      if (nasip) {
+        bekle(2000);
+        resolve('✅ Su kaynadi');
+      }
+      reject(new Error('❌ Kettle arizali'));
+    });
+  };
+
+  const cayEkle = () => {
+    return new Promise((resolve, reject) => {
+      const cayNasibi = Math.floor(Math.random() * 10);
+      if (cayNasibi) {
+        bekle(500);
+        resolve('✅ Cay eklendi.');
+      }
+      reject('❌ Cay bitmis');
+    });
+  };
+
+  const bekle = (ms) => {
+    const start = new Date().getTime();
+    while (new Date().getTime() < start + ms);
+  };
+
+  const afiyet = (m) => {
+    return '🫖 Cay hazir afiyet olsun';
+  };
+
+  cayDemle()
+    </script>
+</body>
+</html>
