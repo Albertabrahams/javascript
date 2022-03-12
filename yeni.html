@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // const cayDemle = () => {
+        //     suyuKaynat()
+        //     .then((durum1)=>{
+        //         console.log(durum1);
+        //         return cayDok();
+        //     })
+        //     .then((durum2)=>{
+        //         console.log(durum2);
+        //         bekle(2000)
+        //         return afiyet();
+        //     })
+        //     .then((durum3)=>{
+        //         console.log(durum3);
+        //     })
+        //     .catch((err)=>{
+        //         console.error(err);
+        //     })
+    //};
+
+        const caydemle2 = async ()=>{
+            try{
+            const durum1 = await suyuKaynat();
+            const durum2 = await cayDok();
+            bekle(2000);
+            const durum3 = await afiyet();
+            console.log(durum1);
+            console.log(durum2);
+            console.log(durum3);
+            }
+            catch(error){
+                console.log(error);
+            }
+        };
+
+            
+        
+
+        const suyuKaynat =()=>{
+            return new Promise((resolve,reject)=>{
+                const nasip = Math.floor(Math.random()*5);
+                if (nasip){
+                    bekle(2000);
+                    resolve('Su kaynadı');
+                }
+                    reject('kettle arızalı')
+            });
+        };
+
+        const cayDok = ()=>{
+            return new Promise((resolve,reject)=>{
+                const nasip2 =  Math.floor(Math.random()*5);
+                if(nasip2){
+                    resolve("çay eklendi");
+                }
+                reject("çay bitmiş")
+            });
+        };
+
+        const bekle = (ms)=>{
+            const start = new Date().getTime;
+            while(new Date().getTime()<start+ms);
+        };
+
+        const afiyet = (m)=>{
+            return "çay hazır afiyet olsun"
+        };
+        caydemle2()
+
+    </script>
+</body>
+</html>
